@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<style>
+  a {
+  background-color: red;
+  box-shadow: 0 5px 0 darkred;
+  color: white;
+  padding: 1em 1.5em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+a:hover {
+  background-color: #ce0606;
+}
+
+a:active {
+  box-shadow: none;
+  top: 5px;
+}
+
+</style>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,7 +83,7 @@
     
 <?php
       $link = mysqli_connect("localhost", "root", "", "final");
-      $result = mysqli_query($link,"SELECT * FROM users");
+      $result = mysqli_query($link,"SELECT * FROM oxirgisi");
 
             if (mysqli_num_rows($result) > 0) {
 ?>
@@ -90,5 +113,7 @@
 
 ?>
 </table>
+
+<a href="index.php">Back to main page</a>
 </body>
 </html>
