@@ -9,7 +9,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];  
   
   
-    $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";  
+    $sql = "INSERT INTO oxirgisi (name, email, password) VALUES ('$name', '$email', '$password')";  
     
     if(mysqli_query($link, $sql)) {
         echo "Records inserted successfully";
@@ -39,15 +39,34 @@ $password = $_POST['password'];
     }
     
     img {
-        display: block;
+        /* display: block; */
         margin-left: auto;
         margin-right: auto;
-        width: 500px;
-        height: 600px;
+        width: 430px;
+        height: 380px;
         border-radius: 20%;
         opacity: 0.7;
+        margin-bottom: 20px;
+        /* position: absolute; */
+        border: 3px solid red;
     }
-    
+    .img{
+        position: relative;
+
+    }
+    .img p{
+        color: white;
+    }
+    .img a{
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    .img a:hover{
+        cursor: pointer;
+        color: cyan;
+        background-color: #15172b;
+    }
     body {
         background-image: url(back.jpg);
         /* background-color: #cccccc; */
@@ -60,6 +79,9 @@ $password = $_POST['password'];
         /* justify-content: center; */
         height: 100vh;
         background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
     .form1 {
@@ -76,6 +98,8 @@ $password = $_POST['password'];
         display: inline-block;
         min-width: 200px;
         opacity: 0.9;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .form2 {
@@ -93,6 +117,8 @@ $password = $_POST['password'];
         display: inline-block;
         /* min-width: 200px; */
         opacity: 0.9;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .title {
@@ -194,11 +220,93 @@ $password = $_POST['password'];
          outline: 0;
         text-align: center;}
 
+        .header{
+            top:0;  
+            width:100%; 
+            height: 80px; 
+            position: fixed;
+            background-color: #e226;            
+        }
+        .header h2{
+            margin-top: 20px;
+            text-align: center;
+            font-family: sans-serif;
+            text-shadow: 2px 2px 3px #222222;
+            color: cyan;
+            display: inline-block;
+            margin-left: 600px;
+        }
+        .header a{
+            float: right;
+            text-decoration: none;
+            color: #15172b;
+            margin-bottom: 500px;
+	        padding: 5px 15px 5px 15px;
+	        color: #fff;
+            border-bottom: 1px solid #fff;
+	        padding-bottom: 0.75px;
+            margin-top: 23px;
+            margin-right: 15px;
+            display: inline-block;
+        }
+        .header a:hover{
+            color: #808097;
+            background-color: #303245;
+        }
+/* .clr{
+    clear: both;
+} */
 
+
+.logo1{
+         width: 60px; 
+         height: 60px;
+         float: left;
+         margin-left: 10px;
+         margin-top: 11px; 
+         /* display: inline-block;  */
+         /* text-indent: -9999px; */
+}
+.logo2{
+         width: 60px; 
+         height: 60px;
+         float: right;
+         margin-right: 10px;
+         margin-top: 11px; 
+         /* display: inline-block;  */
+         /* text-indent: -9999px; */
+}
+.footer{
+            bottom:0;  
+            width:100%; 
+            height: 80px; 
+            position: fixed;
+            background-color: #e226;  
+}
+.copy{
+    
+    font-weight: bold;
+    text-align: center;
+            font-family: sans-serif;
+            margin-top: 30px;
+            
+}
+.text{
+    display: inline;
+    width: 30%;
+    color: wheat;
+}
 </style>
 
 </head>
+<div class="header">
+    <img class="logo1" src="akilhan.jpg" alt="">
+<h2>Hotel registration</h2>
+<a href="#">HOME</a>
+<div class="clr">
 
+</div>
+</div>  
 <body>
     <div class="form1">
         <form action="#" name="form1" method="POST" onsubmit="return validation()">
@@ -221,9 +329,15 @@ $password = $_POST['password'];
 
         </form>
     </div>
-    <div class="img">
+    <div class="img" border="3">
         <img src="center.jpg" alt="">
+        <p><span align="center" style="display: block; color:#06b;"> <a href="#">Register</a> with us and enjoy the moment you have!</span></p>
+        <p style="display: inline-block; position: absolute; color: #fc7f03; font-family:'Times New Roman', Times, serif">
+Typically, the basic hotel services include reception guests, room service, food service, including restaurants in the hotel, and security, performed by the owner himself.</p>
     </div>
+<!-- <div class="text">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure placeat quas fuga architecto reiciendis delectus sapiente odit saepe, animi tempore eligendi error earum accusantium ut? Cupiditate quidem voluptates eos est!</p>
+    </div> -->
 
     <div class="form2" name="form2" >
         <form action="" method="POST">
@@ -250,7 +364,7 @@ $password = $_POST['password'];
         $email1 = mysqli_real_escape_string($link, $email1);  
         $password1 = mysqli_real_escape_string($link, $password1);  
       
-        $sql = "SELECT * from users where email = '$email1' and password = '$password1'";  
+        $sql = "SELECT * from oxirgisi where email = '$email1' and password = '$password1'";  
         $result = mysqli_query($link, $sql);  
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
         $count = mysqli_num_rows($result);  
@@ -317,6 +431,12 @@ $password = $_POST['password'];
 
 
 
+<footer class="footer">
+<img class="logo2" src="akilhan.jpg" alt="">
 
+<p class="copy">
+    &copy;Dadakhonov Okiljon 2022
+</p>
+</footer>
 </body>
 </html>
